@@ -1,7 +1,9 @@
 import { defineConfig } from "vite";
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 export default defineConfig({
-  plugins: [], // Added empty plugins array to allow modification by Cloudflare/Wrangler
+  plugins: [cloudflare()], // Added empty plugins array to allow modification by Cloudflare/Wrangler
   build: {
     outDir: "dist",
     emptyOutDir: true,
