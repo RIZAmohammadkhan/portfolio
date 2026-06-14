@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link class="favicon" rel="icon" type="image/png" href="/favicon.png">
     <link rel="canonical" href="https://rizamkhan.in/">
 
     <!-- ═══════════════════════════════════════════════
@@ -177,7 +177,7 @@
           "@id": "https://rizamkhan.in/#trix",
           "name": "Trix",
           "alternateName": "Trix Terminal Music Player",
-          "description": "High-performance terminal music player in Rust using native Linux ALSA kernel API for zero-latency audio playback. Features custom 60fps Ratatui rendering, sub-50ms directory indexing, dynamic volume control, and multi-format package distribution (AUR, .deb, .rpm).",
+          "description": "High-performance terminal music player in Rust using native Linux ALSA kernel API for zero-latency audio playback. Features custom 60fps Ratatui rendering, sub-50ms directory indexing, dynamic volume control with software amplification fallback, TOML-based theme configuration, and multi-format package distribution (AUR, .deb, .rpm).",
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Linux",
           "programmingLanguage": "Rust",
@@ -220,7 +220,7 @@
           "@id": "https://rizamkhan.in/#le-merge",
           "name": "le-merge",
           "alternateName": "le-merge AI Git Conflict Resolver",
-          "description": "AI-powered autonomous Git merge conflict resolver built with React (Ink), TypeScript, and Bun. Integrates OpenAI, Anthropic, and Gemini APIs using precise line-range edits to minimize hallucinations. Compiles to cross-platform static binaries via Bun and distributes through NPM.",
+          "description": "AI-powered autonomous Git merge conflict resolver built with React (Ink), TypeScript, and Bun. Integrates OpenAI, Anthropic, and Gemini APIs using precise line-range edits to minimize hallucinations. Compiles to static cross-platform binaries via Bun and distributes through NPM.",
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": ["macOS", "Linux", "Windows"],
           "programmingLanguage": ["TypeScript", "React"],
@@ -272,11 +272,16 @@
             padding: 0;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             background-color: #000000;
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             height: 100vh;
+            height: 100dvh; /* Native integration with mobile layout heights */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -298,23 +303,24 @@
             border: 0 !important;
         }
 
+        /* Desktop Layout Styles */
         .main-layout {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8rem;
+            gap: 10rem;
             opacity: 0;
             animation: fadeIn 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             width: 100%;
-            max-width: 600px;
-            padding: 0 20px;
+            max-width: 800px;
+            padding: 0 40px;
         }
 
         .projects-nav {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            gap: 3rem;
+            gap: 4.5rem;
             z-index: 5;
             width: 100%;
         }
@@ -327,8 +333,8 @@
             text-decoration: none;
             color: #444444;
             transition: color 0.4s ease;
-            width: 24px;
-            height: 24px;
+            width: 32px;
+            height: 32px;
         }
 
         .project-item:hover {
@@ -336,8 +342,8 @@
         }
 
         .project-icon {
-            width: 20px;
-            height: 20px;
+            width: 26px;
+            height: 26px;
             fill: none;
             stroke: currentColor;
             stroke-width: 1.25;
@@ -347,10 +353,10 @@
 
         .project-label {
             position: absolute;
-            top: 32px;
+            top: 40px;
             left: 50%;
             transform: translate(-50%, -5px);
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             white-space: nowrap;
@@ -369,7 +375,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4rem;
+            gap: 5rem;
         }
 
         .interactive-zone {
@@ -377,8 +383,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 120px;
-            height: 120px;
+            width: 160px;
+            height: 160px;
         }
 
         .icon-btn {
@@ -399,8 +405,8 @@
         }
 
         .listener-icon {
-            width: 48px;
-            height: 48px;
+            width: 60px;
+            height: 60px;
             fill: none;
             stroke: #ffffff;
             stroke-width: 1.25;
@@ -415,8 +421,8 @@
 
         .outer-ring {
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 110px;
+            height: 110px;
             border: 1px dashed rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             animation: rotateRing 25s linear infinite;
@@ -426,12 +432,12 @@
 
         .speech-bubble {
             position: absolute;
-            bottom: 125%;
+            bottom: 120%;
             left: 50%;
             transform: translate(-50%, 8px);
             border: 1px solid #ffffff;
             background-color: #000000;
-            padding: 10px 18px;
+            padding: 12px 20px;
             border-radius: 3px;
             white-space: nowrap;
             opacity: 0;
@@ -450,7 +456,7 @@
         }
 
         .bubble-text {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: #888888;
@@ -485,7 +491,7 @@
 
         .socials-wrapper {
             display: flex;
-            gap: 2.5rem;
+            gap: 3.5rem;
             align-items: center;
         }
 
@@ -502,8 +508,8 @@
         }
 
         .social-icon {
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             fill: currentColor;
         }
 
@@ -517,14 +523,65 @@
             to   { transform: rotate(360deg); }
         }
 
+        /* Mobile Viewport Adjustment (Now Scaled Up/Zoomed In) */
         @media (max-width: 768px) {
             body {
-                overflow: auto;
-                align-items: flex-start;
-                padding-top: 8vh;
+                height: auto;
+                min-height: 100vh;
+                min-height: 100dvh;
+                overflow-y: auto;
+                overflow-x: hidden; /* Prevents unwanted horizontal desktop-scale zooms */
+                align-items: center;
+                justify-content: center;
+                padding: 40px 0;
             }
             .main-layout {
-                gap: 6rem;
+                gap: 6.5rem; /* Increased separation to match the larger scaled items */
+                padding: 0 20px;
+                max-width: 100%;
+            }
+            .projects-nav {
+                gap: 3.5rem; /* Wider gaps for easier tapping */
+            }
+            .project-item {
+                width: 30px; /* Increased from 24px */
+                height: 30px;
+            }
+            .project-icon {
+                width: 26px; /* Increased from 20px */
+                height: 26px;
+            }
+            .project-label {
+                top: 36px;
+                font-size: 0.7rem;
+            }
+            .central-column {
+                gap: 4.5rem; /* Increased separation */
+            }
+            .interactive-zone {
+                width: 145px; /* Increased from 120px for a more prominent visual weight */
+                height: 145px;
+            }
+            .outer-ring {
+                width: 100px; /* Increased from 80px */
+                height: 100px;
+            }
+            .listener-icon {
+                width: 54px; /* Increased from 48px */
+                height: 54px;
+            }
+            .speech-bubble {
+                padding: 11px 19px;
+            }
+            .bubble-text {
+                font-size: 0.72rem;
+            }
+            .socials-wrapper {
+                gap: 3rem; /* Expanded gaps */
+            }
+            .social-icon {
+                width: 18px; /* Increased from 16px */
+                height: 18px;
             }
         }
 
@@ -609,7 +666,7 @@
     <main class="main-layout" aria-hidden="true">
         
         <nav class="projects-nav" aria-label="Projects navigation">
-                        <!-- le-merge -->
+            <!-- le-merge -->
             <a href="https://merge.rizamkhan.in" target="_blank" rel="noopener noreferrer" class="project-item" aria-label="le-merge — AI Git merge conflict resolver">
                 <svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="18" cy="18" r="3" />
@@ -638,8 +695,6 @@
                 </svg>
                 <span class="project-label">Flattener</span>
             </a>
-
-
         </nav>
 
         <div class="central-column" itemscope itemtype="https://schema.org/Person">
